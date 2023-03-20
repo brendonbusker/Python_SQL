@@ -48,17 +48,22 @@ class SQL_Login:
         
         cn_str = (
             
-            'Driver={SQL Server Native Client 11.0};' #data source driver
+        'Driver={SQL Server Native Client 11.0};' #data source driver
             
-            'Server=MIS-SQLJB;' #server name
+        'Server=MIS-SQLJB;' #server name
             
-            'Database=School;' #database name
+        'Database=School;' #database name
             
-            'UID='+login+';'   #username
+        'UID='+login+';'   #username
             
-            'PWD='+password+';' #user password
+        'PWD='+password+';' #user password
             
         )
+        
+               
+        #connect to server
+        
+        cn = pyodbc.connect(cn_str)
 
 
 #Run GUI
