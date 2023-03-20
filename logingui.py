@@ -41,7 +41,24 @@ class SQL_Login:
 
     #Access Database Command
     def access_database(self):
-        tkinter.messagebox.showinfo("Congrats", "U pressed login")
+        login = self.login_entry.get()
+        password = self.pass_entry.get()
+        
+        self.main_window.destroy()
+        
+        cn_str = (
+            
+            'Driver={SQL Server Native Client 11.0};' #data source driver
+            
+            'Server=MIS-SQLJB;' #server name
+            
+            'Database=School;' #database name
+            
+            'UID='+login+';'   #username
+            
+            'PWD='+password+';' #user password
+            
+        )
 
 
 #Run GUI
