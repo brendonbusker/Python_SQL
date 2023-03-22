@@ -46,6 +46,8 @@ class SQL_Login:
         
         self.main_window.destroy()
         
+        preList = {}
+        courseList = []
         cn_str = (
             
         'Driver={SQL Server Native Client 11.0};' #data source driver
@@ -64,6 +66,36 @@ class SQL_Login:
         #connect to server
         
         cn = pyodbc.connect(cn_str)
+
+        cursor = cn.cursor()
+
+        cursor.execute ('select * from School.dbo.Course')
+
+        data = cursor.fetchall()
+
+        print(data)
+
+        for row in data:
+            courseID = row[0]
+            title = row[1]
+            credit = row[2]
+            deptID = row[3]
+
+            preList = {"CourseID":courseID, "Title":title, "Credit":credit, "DeptID":deptID}
+
+            courseList.append(preList)
+
+            print(preList)
+
+        a = int(input("CourseID to search: "))
+
+        for dictionary in courseList:
+            if dictionary["CourseID"] == a:
+                print(f'Title of the course: {dictionary["Title"]}')
+                print(f'Credits for the course: {dictionary["Credit"]}')
+                print(f'Dept ID for the course: {dictionary["DeptID"]}')
+
+
 
 
 #Run GUI
