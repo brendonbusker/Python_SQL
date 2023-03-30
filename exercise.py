@@ -137,6 +137,9 @@ Mathematics				$250,000.00			$275,000.00		$25,000.00
 Information Systems		$375,000.00			$450,000.00		$75,000.00
 Computer Science		$310,500.00			$357,075.00		$46,575.00
 
+
+
+****I did the exercises in the seperate py files****
 '''
 
 
